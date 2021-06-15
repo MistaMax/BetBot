@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/MistaMax/BetBot/issues"
   },
-  "homepage": "https://github.com/MistaMax/BetBot#readme"
+  "homepage": "https://github.com/MistaMax/BetBot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "enmap": "^5.8.5"
+  }
 }
