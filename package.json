@@ -1,0 +1,19 @@
+{
+  "name": "betbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MistaMax/BetBot.git"
+  },
+  "author": "Max Crookshanks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MistaMax/BetBot/issues"
+  },
+  "homepage": "https://github.com/MistaMax/BetBot#readme"
+}
