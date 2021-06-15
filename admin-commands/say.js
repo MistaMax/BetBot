@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-    if(message.author.id===client.config.ownerid)
+    if(message.author.id===client.config.ownerid || client.config.admins.includes(message.author.id))
     {
         message.channel.send(message.content.substring(client.config.prefix.length+4,message.content.length));
         message.delete();

@@ -2,7 +2,7 @@ module.exports = (client, message) => {
     // Ignore all bots
     if (message.author.bot) return;
     if (!(message.channel.type === "dm")) {
-      if (message.channel.name === "bets") {
+      if (client.config.monitoredChannels.includes(message.channel.name)) {
         //check for logging information
         try {
           client.fs.appendFile('logs/' + message.createdAt.getFullYear() + '-' + message.createdAt.getMonth() + '-' + message.createdAt.getDate() + '.log', message.createdAt.getHours() + ':' + message.createdAt.getMinutes() + ':' + message.createdAt.getSeconds() + '|' + message.author.id + '|' + message.author.tag + '|' + message.content + '\n', (err) => {

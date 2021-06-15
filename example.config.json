@@ -1,5 +1,11 @@
 {
     "token":"token",
     "prefix":"!",
-    "ownerid":"discordid"
+    "ownerid":"discordid",
+    "monitoredChannels":[
+        "bets"
+    ],
+    "admins":[
+        "admin ids"
+    ]
 }
