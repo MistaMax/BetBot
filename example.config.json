@@ -7,5 +7,11 @@
     ],
     "admins":[
         "admin ids"
-    ]
+    ],
+    "database":{
+        "username":"username",
+        "password":"password",
+        "url":"dburl",
+        "dbname":"databasename"
+    }
 }

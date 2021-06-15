@@ -1,8 +1,6 @@
 # BetBot
-# Setup
-Create your own config.json with the following variables:\n
--token (the token for your bot)\n
--prefix (the prefix you want for commands)\n
--ownerid (will make a list later)\n
-
+a bot to place bets
+# Config
+Create your own config.json with the variables in the example.config.json
+# Logging
 Make a logs directory and put a default.log file in it.
