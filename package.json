@@ -18,6 +18,7 @@
   "homepage": "https://github.com/MistaMax/BetBot#readme",
   "dependencies": {
     "discord.js": "^12.5.3",
-    "enmap": "^5.8.5"
+    "enmap": "^5.8.5",
+    "mongodb": "^3.6.9"
   }
 }

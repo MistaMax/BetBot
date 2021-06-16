@@ -6,6 +6,6 @@ const uri = "mongodb+srv://"+client.config.database.username+":"+client.config.d
 const database = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 database.connect(err => {
   const collection = database.db(client.config.database.dbname).collection("bets");//pulling from the collection(table) bets from the database
-  // perform actions on the collection object
+  console.log("I'm in")
   database.close();
 });
