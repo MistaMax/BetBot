@@ -7,7 +7,7 @@ exports.run = async (client, message, args) => {
         msg = "Could not find user for "+message.author.tag;
     }
     else{
-        msg = `Your balance is \$${money.balance} \@`+message.author.tag;
+        msg = `Your balance is \$${money.balance}`;
     }
-    message.channel.send(msg);
+    message.reply(msg);
 }
