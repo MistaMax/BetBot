@@ -38,6 +38,22 @@ module.exports.getObjById = async (client, collection, id) => {
     }
 }
 
+module.exports.updateObjById = async (client, collection, id, update) => {
+    const uri = "mongodb+srv://"+client.config.database.username+":"+client.config.database.password+"@"+client.config.database.url;
+    const mclient = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    try{
+        await mclient.connect();
+        const db = mclient.db(client.config.database.dbname);
+        const result = await db.collection(collection).updateOne({"_id":id},{$set:update});
+    }
+    catch(err){
+        console.log(err)
+    }
+    finally{
+        mclient.close();
+    }
+}
+
 module.exports.getObjByIdCallback = (client, collection, id, callback) => {
     const uri = "mongodb+srv://"+client.config.database.username+":"+client.config.database.password+"@"+client.config.database.url;
     const mclient = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
