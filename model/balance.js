@@ -1,9 +1,11 @@
 const db = require("./database");
 
 module.exports.addBalance = async (client,id,ammnt) => {
-    const find = await getBalance(id);
+    const find = await db.getObjById(client,"balance",id);
     if(find != null){
-        //update here
+        const sum = find.balance + ammnt;
+        console.log(find);
+        db.updateObjById(client,"balance",id,{"balance":sum});
         console.log(find);
     }
     else{
