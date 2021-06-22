@@ -3,10 +3,20 @@ const path = require('path');
 const morgan = require('morgan');
 const chalk = require('chalk');
 const config = require('../config.json');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
 
 const app = express();
 
+//middleware here
 app.use(morgan('tiny'));
+app.use(cookieParser());
+app.use(session({secret:'bet-bot'}));
+
+//passport authentication
+require('./src/config/passport.js')(app);
+
+//html resources here
 app.use(express.static(path.join(__dirname,"/public-sidebar/")));
 app.use('/css',express.static(path.join(__dirname,"../node_modules/bootstrap/dist/css")));
 app.use('/js',express.static(path.join(__dirname,"../node_modules/bootstrap/dist/js")));
