@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/jest --coverage",
+    "start": "node index"
+  },
+  "jest":{
+    "collectionCoverage": true,
+    "coverageReporters":["html"]
   },
   "repository": {
     "type": "git",
@@ -19,6 +24,7 @@
   "dependencies": {
     "discord.js": "^12.5.3",
     "enmap": "^5.8.5",
+    "jest": "^27.0.4",
     "mongodb": "^3.6.9"
   }
 }
