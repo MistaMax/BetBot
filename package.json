@@ -6,7 +6,7 @@
   "scripts": {
     "test": "./node_modules/.bin/jest --coverage",
     "start": "./node_modules/.bin/nodemon index",
-    "web-deploy":"./node_modules/.bin/nodemon website/app"
+    "web-deploy":"./node_modules/.bin/nodemon website/app.js"
   },
   "jest": {
     "collectionCoverage": true,
