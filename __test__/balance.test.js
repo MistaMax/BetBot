@@ -11,6 +11,10 @@ it("Adding entry with _id 1 to the balance collection, testing find functionalit
     let result = await balance.getBalance(client,"1");
     expect(result._id).toEqual("1");
     //testing update
+    await balance.setBalance(client, "1", 200);
+    result = await balance.getBalance(client,"1");
+    expect(result.balance).toEqual(200);
+    //testing add
     await balance.addBalance(client, "1", 200);
     result = await balance.getBalance(client,"1");
     expect(result.balance).toEqual(400);
