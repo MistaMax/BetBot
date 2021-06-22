@@ -49,20 +49,6 @@ module.exports.updateObjById = async (client, collection, id, update) => {
   }
 };
 
-/*module.exports.getObjByIdCallback = (client, collection, id, callback) => {
-  const uri = `mongodb+srv://${client.config.database.username}:${client.config.database.password}@${client.config.database.url}`;
-  const mclient = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-  try {
-    mclient.connect((err) => {
-      mclient.db(client.config.database.dbname).collection(collection).findOne({ _id: id }).then((obj) => { callback(obj); });
-    });
-  } catch (error) {
-    throw new Error('The thingy has failed');
-  } finally {
-    mclient.close();
-  }
-};*/
-
 module.exports.removeObjById = async (client, collection, id) => {
   const uri = `mongodb+srv://${client.config.database.username}:${client.config.database.password}@${client.config.database.url}`;
   const mclient = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });

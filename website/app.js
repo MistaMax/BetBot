@@ -2,48 +2,31 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const chalk = require('chalk');
-const util = require("util");
-const fs = require("fs");
-const ejs = require("ejs");
-//promisify
-const mkdir = util.promisify(fs.mkdir);
-const readFile = util.promisify(fs.readFile);
-const writeFile = util.promisify(fs.writeFile);
-//setting up an ejs render
-async function render(p) {
-  try {
-    //create output directory
-    await mkdir("dist", { recursive: true });
-
-    //render ejs template to html string
-    const html = await ejs
-      .renderFile(path.join(__dirname,"/views/"+p+".ejs"), { config:require('../config'),balance:require('../model/balance'),async: true})
-      .then((output) => output);
-    //create file and write html
-    await writeFile(path.join(__dirname,"/dist/"+p+".html"), html, "utf8");
-  } catch (error) {
-    console.log(error);
-  }
-}
+const config = require('../config.json');
 
 const app = express();
 
 app.use(morgan('tiny'));
-app.use(express.static(path.join(__dirname,"/public/")));
+app.use(express.static(path.join(__dirname,"/public-sidebar/")));
 app.use('/css',express.static(path.join(__dirname,"../node_modules/bootstrap/dist/css")));
 app.use('/js',express.static(path.join(__dirname,"../node_modules/bootstrap/dist/js")));
 app.use('/js',express.static(path.join(__dirname,"../node_modules/jquery/dist/js")));
+app.set('views',path.join(__dirname,"/src/views"));
+app.set('view engine', 'ejs');
 
-const main = async (req, res) => {
-    let p = req._parsedOriginalUrl.path;
-    if(p == '/')p = 'index';
-    else p = p.replace('/','');
-    await render(p);
-    res.sendFile(path.join(__dirname,"/dist/"+p+".html"));
-};
+const nav = [{title:'Balance',link:'balance'},{title:'Bets',link:'bets'}]
 
-app.get('/',main);
-app.get('/balance',main);
+const adminRouter = require('./src/routers/adminRoutes')(nav);
+const balanceRouter = require('./src/routers/balanceRoutes')(nav);
+const authRouter = require('./src/routers/authRoutes')(config,nav);
+
+app.use('/admin', adminRouter);
+app.use('/balance',balanceRouter);
+app.use('/auth',authRouter);
+
+app.get('/',(req,res) => {
+  res.render('index-sidebar',{title:'BetBot UI',nav});
+});
 
 app.listen(3000, () => {
     console.log(`Loaded server on port ${chalk.green('3000')}`);
