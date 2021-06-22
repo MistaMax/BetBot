@@ -7,9 +7,11 @@
     "test": "./node_modules/.bin/jest --coverage",
     "start": "node index"
   },
-  "jest":{
+  "jest": {
     "collectionCoverage": true,
-    "coverageReporters":["html"]
+    "coverageReporters": [
+      "html"
+    ]
   },
   "repository": {
     "type": "git",
@@ -22,9 +24,16 @@
   },
   "homepage": "https://github.com/MistaMax/BetBot#readme",
   "dependencies": {
+    "bootstrap": "^5.0.1",
+    "chalk": "^4.1.1",
     "discord.js": "^12.5.3",
+    "ejs": "^3.1.6",
     "enmap": "^5.8.5",
+    "express": "^4.17.1",
     "jest": "^27.0.4",
-    "mongodb": "^3.6.9"
+    "jquery": "^3.6.0",
+    "mongodb": "^3.6.9",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7"
   }
 }

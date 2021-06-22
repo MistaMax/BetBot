@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/bootstrap-theme.min.css" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                Balance<br>
+                <% const client = {"config":config}; %>
+                <% const bal = await balance.getBalance(client,config.ownerid); %>
+                <%= bal.balance %>
+            </div>
+        </div>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/boostrap.min.js"></script>
+    </body>
+</html>
