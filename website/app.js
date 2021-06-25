@@ -11,7 +11,9 @@ const app = express();
 //middleware here
 app.use(morgan('tiny'));
 app.use(cookieParser());
-app.use(session({secret:'bet-bot'}));
+app.use(session({secret:'bet-bot',
+  resave: false,
+  saveUninitialized: false}));
 
 //passport authentication
 require('./src/config/passport.js')(app);
@@ -35,8 +37,19 @@ app.use('/balance',balanceRouter);
 app.use('/auth',authRouter);
 
 app.get('/',(req,res) => {
-  res.render('index-sidebar',{title:'BetBot UI',nav});
+  let loginid = '-1';
+  if(req.isAuthenticated())loginid=JSON.stringify(req.user);
+  res.render('index-sidebar',{title:'BetBot UI',nav,loginid});
 });
+
+app.get('/info', checkAuth, (req, res) => {
+  res.json(req.user);
+});
+
+function checkAuth(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.send('not logged in :(');
+}
 
 app.listen(3000, () => {
     console.log(`Loaded server on port ${chalk.green('3000')}`);

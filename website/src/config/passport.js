@@ -1,5 +1,6 @@
 const passport = require('passport');
-require('./strategies/discord.strategy')();
+const { strategy } = require('./strategies/discord.strategy');
+strategy();
 
 module.exports = function passportConfig(app) {
     app.use(passport.initialize());

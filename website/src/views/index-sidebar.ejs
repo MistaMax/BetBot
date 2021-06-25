@@ -32,7 +32,12 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                                 <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                                <%if(loginid == '-1'){%>
+                                <li class="nav-item"><a class="nav-link" href="/auth">Login</a></li>
+                                <%}%>
+                                <%if(loginid != '-1'){%>
+                                <li class="nav-item"><a class="nav-link" href="/auth/logout">Logout</a></li>
+                                <%}%>
                             </ul>
                         </div>
                     </div>
@@ -40,7 +45,12 @@
                 <!-- Page content-->
                 <div class="container-fluid">
                     <h1 class="mt-4"><%=title%></h1>
+                    <% if(loginid == '-1') {%>
                     <p>Please Login to see stats</p>
+                    <%}%>
+                    <%if(loginid != '-1'){%>
+                    <%= loginid%>
+                    <%}%>
                 </div>
             </div>
         </div>

@@ -13,5 +13,9 @@
         "password":"password",
         "url":"dburl",
         "dbname":"databasename"
+    },
+    "authorization":{
+        "clientID":"api id here",
+        "clientSecret":"api secret here"
     }
 }
