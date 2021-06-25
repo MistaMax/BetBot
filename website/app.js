@@ -38,12 +38,13 @@ app.use('/auth',authRouter);
 
 app.get('/',(req,res) => {
   let loginid = '-1';
-  if(req.isAuthenticated())loginid=JSON.stringify(req.user);
-  res.render('index-sidebar',{title:'BetBot UI',nav,loginid});
-});
-
-app.get('/info', checkAuth, (req, res) => {
-  res.json(req.user);
+  let username = '';
+  if(req.isAuthenticated()){
+    loginid=req.user.id;
+    username = req.user.username;
+  }
+  //get username and stuff from the request.user object
+  res.render('index-sidebar',{title:'BetBot UI',nav,loginid,username});
 });
 
 function checkAuth(req, res, next) {
