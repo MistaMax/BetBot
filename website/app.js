@@ -26,15 +26,17 @@ app.use('/js',express.static(path.join(__dirname,"../node_modules/jquery/dist/js
 app.set('views',path.join(__dirname,"/src/views"));
 app.set('view engine', 'ejs');
 
-const nav = [{title:'Balance',link:'balance'},{title:'Bets',link:'bets'}]
+const nav = [{title:'Home',link:'/'},{title:'Balance',link:'/balance'},{title:'Bets',link:'/bets'},{title:'Logout',link:'/auth/logout'}]
 
 const adminRouter = require('./src/routers/adminRoutes')(nav);
 const balanceRouter = require('./src/routers/balanceRoutes')(nav);
-const authRouter = require('./src/routers/authRoutes')(config,nav);
+const authRouter = require('./src/routers/authRoutes')(nav);
+const betRouter = require('./src/routers/betRoutes')(nav);
 
 app.use('/admin', adminRouter);
 app.use('/balance',balanceRouter);
 app.use('/auth',authRouter);
+app.use('/bets',betRouter);
 
 app.get('/',(req,res) => {
   let loginid = '-1';
