@@ -13,7 +13,7 @@ module.exports.strategy = () => {
     passport.use(new Strategy({
         clientID: config.authorization.clientID,
         clientSecret: config.authorization.clientSecret,
-        callbackURL: 'http://localhost:3000/auth/callback',
+        callbackURL: config.authorization.callbackURL,
         scope: scopes,
         prompt: prompt
     }, (accessToken, refreshToken, profile, done) => {
