@@ -10,6 +10,9 @@ function balanceController(nav){
             loginid=req.user.id;
             username = req.user.username;
             bal = await balance.getBalance({config},loginid);
+            if(bal == null){
+                bal = {balance:"0"};
+            }
         }
         res.render('balance',{title:'BetBot UI',nav, loginid, username, balance:bal.balance});
     }
