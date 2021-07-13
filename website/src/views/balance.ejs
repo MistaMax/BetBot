@@ -7,6 +7,8 @@
             <%}%>
             <%if(loginid != '-1'){%>
                 <h1 class="mt-4"><%= username%>'s Balance is $<%= balance%></h1>
+                <h2 class="mt-4">Your last daily claim was <%= lastClaimDate %></h2>
             <%}%>
+            
     </div>
 <%- include('footer') %>

@@ -11,10 +11,10 @@ function balanceController(nav){
             username = req.user.username;
             bal = await balance.getBalance({config},loginid);
             if(bal == null){
-                bal = {balance:"0"};
+                bal = {balance:"0", lastClaimDate: "never"};
             }
         }
-        res.render('balance',{title:'BetBot UI',nav, loginid, username, balance:bal.balance});
+        res.render('balance',{title:'BetBot UI',nav, loginid, username, balance:bal.balance, lastClaimDate: bal.lastClaimDate});
     }
     return { getDisplay };
 }
