@@ -4,7 +4,7 @@ exports.run = async (client, message, args) => {
   const claimAmmount = 200.00;
   const user = await balance.getBalance(client, message.author.id);
   let msg = '';
-  if (money == null) {
+  if (user == null) {
     message.reply(`Could not find user for ${message.author.tag}`);
     return;
   }
