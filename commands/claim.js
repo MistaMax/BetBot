@@ -4,10 +4,6 @@ exports.run = async (client, message, args) => {
   const claimAmmount = 200.00;
   const user = await balance.getBalance(client, message.author.id);
   let msg = '';
-  if (user == null) {
-    message.reply(`Could not find user for ${message.author.tag}`);
-    return;
-  }
   const today = new Date();
   const dd = String(today.getDate()).padStart(2, '0');
   const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
