@@ -13,5 +13,10 @@
         "password":"password",
         "url":"dburl",
         "dbname":"databasename"
+    },
+    "authorization":{
+        "clientID":"api id here",
+        "clientSecret":"api secret here",
+        "callbackURL": "http://localhost:3000/auth/callback"
     }
 }

@@ -1,0 +1,12 @@
+<%- include('header') %>
+    <!-- Page content-->
+    <div class="container-fluid">
+            <% if(loginid == '-1') {%>
+            <h1 class="mt-4">Bets</h1>
+            <p>Please Login to see stats</p>
+            <%}%>
+            <%if(loginid != '-1'){%>
+                <h1 class="mt-4"><%= username%>'s Bets</h1>
+            <%}%>
+    </div>
+<%- include('footer') %>

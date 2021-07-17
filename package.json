@@ -4,7 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/jest --coverage",
+    "start": "./node_modules/.bin/nodemon index",
+    "web-deploy": "./node_modules/.bin/nodemon website/app.js"
+  },
+  "jest": {
+    "collectionCoverage": true,
+    "coverageReporters": [
+      "html"
+    ]
   },
   "repository": {
     "type": "git",
@@ -17,7 +25,21 @@
   },
   "homepage": "https://github.com/MistaMax/BetBot#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^5.0.1",
+    "chalk": "^4.1.1",
+    "cookie-parser": "^1.4.5",
     "discord.js": "^12.5.3",
-    "enmap": "^5.8.5"
+    "ejs": "^3.1.6",
+    "enmap": "^5.8.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "jest": "^27.0.4",
+    "jquery": "^3.6.0",
+    "mongodb": "^3.6.9",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
+    "passport-discord": "^0.1.4"
   }
 }

@@ -1,0 +1,15 @@
+<%- include('header') %>
+    <!-- Page content-->
+    <div class="container-fluid">
+            <% if(loginid == '-1') {%>
+            <h1 class="mt-4">Balance</h1>
+            <p>Please Login to see stats</p>
+            <%}%>
+            <%if(loginid != '-1'){%>
+                <h1 class="mt-4"><%= username%>'s Balance is $<%= balance%></h1>
+                <h3 class="mt-4">Your last daily claim was <%= lastClaimDate %></h3>
+                <p>Times are in server time</p>
+            <%}%>
+            
+    </div>
+<%- include('footer') %>

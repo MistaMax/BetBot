@@ -1,0 +1,19 @@
+<%- include('header') %>
+    <!-- Page content-->
+    <div class="container-fluid">
+        <h1 class="mt-4">
+            <% if(loginid != '-1') {%>
+            Welcome <%= username %>,
+            <%}%>
+            <% if(loginid == '-1') {%>
+            <%= title%>
+            <%}%>
+        </h1>
+            <% if(loginid == '-1') {%>
+            <p>Please Login to see stats</p>
+            <%}%>
+            <%if(loginid != '-1'){%>
+                Please explore your options to the left
+            <%}%>
+    </div>
+<%- include('footer') %>
