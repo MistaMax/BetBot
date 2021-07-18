@@ -54,6 +54,6 @@ function checkAuth(req, res, next) {
   res.send('not logged in :(');
 }
 
-app.listen(3000, () => {
-    console.log(`Loaded server on port ${chalk.green('3000')}`);
+app.listen(config.websiteport, () => {
+    console.log(`Loaded server on port ${chalk.green(config.websiteport)}`);
 });

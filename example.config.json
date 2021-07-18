@@ -18,5 +18,6 @@
         "clientID":"api id here",
         "clientSecret":"api secret here",
         "callbackURL": "http://localhost:3000/auth/callback"
-    }
+    },
+    "website-port":3000
 }
