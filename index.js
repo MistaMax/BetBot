@@ -9,7 +9,9 @@ client.config = config;
 client.fs = fs;
 client.llog = llog;
 client.currlog = llog.loadLog('./logs/default.log');
-
+//add queuing to bot
+client.musicQueue = new Map();
+//Begin running the bot
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });

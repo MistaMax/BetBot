@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/MistaMax/BetBot#readme",
   "dependencies": {
+    "@discordjs/opus": "^0.6.0",
     "body-parser": "^1.19.0",
     "bootstrap": "^5.0.1",
     "chalk": "^4.1.1",
@@ -34,12 +35,15 @@
     "enmap": "^5.8.5",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
+    "ffmpeg": "0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
     "jest": "^27.0.4",
     "jquery": "^3.6.0",
     "mongodb": "^3.6.9",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.7",
     "passport": "^0.4.1",
-    "passport-discord": "^0.1.4"
+    "passport-discord": "^0.1.4",
+    "ytdl-core": "^4.9.1"
   }
 }
