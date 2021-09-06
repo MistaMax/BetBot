@@ -95,10 +95,6 @@ exports.run = async (client, message, args) => {
         message.reply("Please add additional arguments");
         return;
     }
-    const guildid = message.guild.id;
-    if (!client.musicqueue.has(guidid)) {
-
-    }
 
     switch (args[0]) {
         case "play":
