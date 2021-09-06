@@ -7,7 +7,7 @@ module.exports = class extends Client {
       intents: [Intents.FLAGS.GUILD_VOICE_STATES, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILDS],
     });
     this.commands = new Enmap();
-    client.adminCommands = new Enmap();
+    this.adminCommands = new Enmap();
     this.musiccommands = new Collection();
 
     this.queue = new Map();
