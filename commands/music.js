@@ -14,7 +14,7 @@ const p = async (client, message, args) => {
         );
     }
     //set up queue
-    const serverQueue = client.musicqueue.get(message.guild.id);
+    const serverQueue = client.queue.get(message.guild.id);
     const songInfo = await ytdl.getInfo(args[1]);
     const song = {
         title: songInfo.videoDetails.title,
@@ -31,7 +31,7 @@ const p = async (client, message, args) => {
             playing: true
         };
 
-        client.musicqueue.set(message.guild.id, queueContruct);
+        client.queue.set(message.guild.id, queueContruct);
 
         queueContruct.songs.push(song);
 
@@ -41,7 +41,7 @@ const p = async (client, message, args) => {
             play(client, message.guild, queueContruct.songs[0]);
         } catch (err) {
             console.log(err);
-            client.musicqueue.delete(message.guild.id);
+            client.queue.delete(message.guild.id);
             return message.channel.send(err);
         }
     } else {
@@ -51,10 +51,10 @@ const p = async (client, message, args) => {
 }
 
 function play(client, guild, song) {
-    const serverQueue = client.musicqueue.get(guild.id);
+    const serverQueue = client.queue.get(guild.id);
     if (!song) {
         serverQueue.voiceChannel.leave();
-        client.musicqueue.delete(guild.id);
+        client.queue.delete(guild.id);
         return;
     }
 
@@ -70,7 +70,7 @@ function play(client, guild, song) {
 }
 
 const stop = async (client, message) => {
-    const serverQueue = client.musicqueue.get(message.guild.id);
+    const serverQueue = client.queue.get(message.guild.id);
     if (!message.member.voice.channel)
         return message.channel.send(
             "You have to be in a voice channel to stop the music!"
@@ -88,7 +88,7 @@ const next = async (client, message) => {
         return message.channel.send(
             "You have to be in a voice channel to stop the music!"
         );
-    const serverQueue = client.musicqueue.get(message.guild.id);
+    const serverQueue = client.queue.get(message.guild.id);
     if (!serverQueue)
         return message.channel.send("There is no song that I could skip!");
     serverQueue.connection.dispatcher.end();
