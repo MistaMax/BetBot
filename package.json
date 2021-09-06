@@ -26,6 +26,7 @@
   "homepage": "https://github.com/MistaMax/BetBot#readme",
   "dependencies": {
     "@discordjs/node-pre-gyp": "^0.4.1",
+    "@discordjs/opus": "^0.6.0",
     "body-parser": "^1.19.0",
     "bootstrap": "^5.0.1",
     "chalk": "^4.1.1",
