@@ -1,7 +1,7 @@
 const { GuildMember } = require('discord.js');
 const { QueryType } = require('discord-player');
 
-exports.run = async (interaction, player) {
+exports.run = async (interaction, player) => {
   try {
     if (!(interaction.member instanceof GuildMember) || !interaction.member.voice.channel) {
       return void interaction.reply({

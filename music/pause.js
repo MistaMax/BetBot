@@ -1,6 +1,6 @@
 const { GuildMember } = require('discord.js');
 
-exports.run = async (interaction, player) {
+exports.run = async (interaction, player) => {
   if (!(interaction.member instanceof GuildMember) || !interaction.member.voice.channel) {
     return void interaction.reply({
       content: 'You are not in a voice channel!',
