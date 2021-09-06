@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const Enmap = require("enmap");
 const fs = require("fs");
 //const client = new Discord.Client();
 const Client = require("./client/Client.js");
@@ -26,8 +25,9 @@ fs.readdir("./evs/", (err, files) => {
     client.on(evName, ev.bind(null,client));
   });
 });
+
 //reads in the commands
-client.commands = new Enmap();
+
 fs.readdir("./commands/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
@@ -40,7 +40,6 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 //reads in the admin commands
-client.adminCommands = new Enmap();
 fs.readdir("./admin-commands/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
