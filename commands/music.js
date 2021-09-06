@@ -38,7 +38,7 @@ const p = async (client, message, args) => {
         try {
             var connection = await voiceChannel.join();
             queueContruct.connection = connection;
-            play(message.guild, queueContruct.songs[0]);
+            play(client,message.guild, queueContruct.songs[0]);
         } catch (err) {
             console.log(err);
             queue.delete(message.guild.id);
@@ -50,8 +50,8 @@ const p = async (client, message, args) => {
     }
 }
 
-function play(guild, song) {
-    const serverQueue = queue.get(guild.id);
+function play(client, guild, song) {
+    const serverQueue = client.musicqueue.get(guild.id);
     if (!song) {
         serverQueue.voiceChannel.leave();
         queue.delete(guild.id);
