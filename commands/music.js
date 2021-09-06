@@ -118,6 +118,7 @@ exports.run = async (client, message, args) => {
         return;
     }
     const command = client.musiccommands.get(args[0]);
+    console.log(args[0]);
     try {
         if (args[0] == 'ban' || args[0] == 'userinfo') {
             command.run(message, client);

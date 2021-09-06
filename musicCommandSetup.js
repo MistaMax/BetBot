@@ -14,7 +14,7 @@ module.exports = (client) => {
             let props = require(`./music/${file}`);
             let commandName = file.split(".")[0];
             console.log(`Attempting to load command ${commandName}`);
-            client.commands.set(commandName, props);
+            client.musiccommands.set(commandName, props);
         });
     });
 
