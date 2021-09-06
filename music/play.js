@@ -20,7 +20,7 @@ exports.run = async (interaction, player) => {
       });
     }
 
-    await interaction.deferReply();
+    //await interaction.reply();
 
     const query = interaction.options.get('query').value;
     const searchResult = await player
