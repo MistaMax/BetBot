@@ -38,7 +38,7 @@ const p = async (client, message, args) => {
         try {
             var connection = await voiceChannel.join();
             queueContruct.connection = connection;
-            play(client,message.guild, queueContruct.songs[0]);
+            play(client, message.guild, queueContruct.songs[0]);
         } catch (err) {
             console.log(err);
             client.musicqueue.delete(message.guild.id);
@@ -88,6 +88,7 @@ const next = async (client, message) => {
         return message.channel.send(
             "You have to be in a voice channel to stop the music!"
         );
+    const serverQueue = client.musicqueue.get(message.guild.id);
     if (!serverQueue)
         return message.channel.send("There is no song that I could skip!");
     serverQueue.connection.dispatcher.end();
