@@ -1,3 +1,5 @@
+const ytdl = require("ytdl-core");
+
 const play = async (client, message, args) => {
     //check vc
     const voiceChannel = message.member.voice.channel;
