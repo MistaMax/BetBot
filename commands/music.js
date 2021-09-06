@@ -120,9 +120,9 @@ exports.run = async (client, message, args) => {
     const command = client.musiccommands.get(args[0]);
     try {
         if (args[0] == 'ban' || args[0] == 'userinfo') {
-            command.execute(message, client);
+            command.run(message, client);
         } else {
-            command.execute(message, client.player);
+            command.run(message, client.player);
         }
     } catch (error) {
         console.error(error);
