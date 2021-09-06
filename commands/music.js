@@ -50,18 +50,37 @@ const p = async (client, message, args) => {
     }
 }
 
+function play(guild, song) {
+    const serverQueue = queue.get(guild.id);
+    if (!song) {
+        serverQueue.voiceChannel.leave();
+        queue.delete(guild.id);
+        return;
+    }
+
+    const dispatcher = serverQueue.connection
+        .play(ytdl(song.url))
+        .on("finish", () => {
+            serverQueue.songs.shift();
+            play(guild, serverQueue.songs[0]);
+        })
+        .on("error", error => console.error(error));
+    dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+    serverQueue.textChannel.send(`Start playing: **${song.title}**`);
+}
+
 const stop = async (client, message) => {
     const serverQueue = client.musicqueue.get(message.guild.id);
     if (!message.member.voice.channel)
-    return message.channel.send(
-      "You have to be in a voice channel to stop the music!"
-    );
-    
-  if (!serverQueue)
-    return message.channel.send("There is no song that I could stop!");
-    
-  serverQueue.songs = [];
-  serverQueue.connection.dispatcher.end();
+        return message.channel.send(
+            "You have to be in a voice channel to stop the music!"
+        );
+
+    if (!serverQueue)
+        return message.channel.send("There is no song that I could stop!");
+
+    serverQueue.songs = [];
+    serverQueue.connection.dispatcher.end();
 }
 
 const next = async (client, message) => {
