@@ -3,7 +3,6 @@ const Client = require("./client/Client.js");
 const config = require("./config.json");
 const llog = require("./datastruct/loadedlog.js");
 const client = new Client(config);
-const musicCommandSetup = require("./musicCommandSetup");
 
 // We also need to make sure we're attaching the config to the CLIENT so it's accessible everywhere!
 client.fs = fs;
@@ -48,8 +47,5 @@ fs.readdir("./admin-commands/", (err, files) => {
     client.commands.set(commandName, props);
   });
 });
-
-//reads in the music commands
-musicCommandSetup(client);
 
 client.login(config.token);

@@ -117,18 +117,25 @@ exports.run = async (client, message, args) => {
         message.reply("Please add additional arguments");
         return;
     }
-    const command = client.musiccommands.get(args[0]);
-    console.log(args[0]);
-    try {
-        if (args[0] == 'ban' || args[0] == 'userinfo') {
-            command.run(message, client);
-        } else {
-            command.run(message, client.player);
-        }
-    } catch (error) {
-        console.error(error);
-        message.reply({
-            content: 'There was an error trying to execute that command!',
-        });
+
+    switch (args[0]) {
+        case "play":
+            if (args.length < 2) {
+                message.reply("Not enough arguments");
+            }
+            p(client, message, args);
+            break;
+        case "stop":
+            stop(client, message);
+            break;
+        case "next":
+            next(client, message);
+            break;
+        case "join":
+            join(client, message);
+            break;
+        case "leave":
+            leave(client, message);
+            break;
     }
 };
