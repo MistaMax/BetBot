@@ -41,7 +41,7 @@ const p = async (client, message, args) => {
             play(client,message.guild, queueContruct.songs[0]);
         } catch (err) {
             console.log(err);
-            queue.delete(message.guild.id);
+            client.musicqueue.delete(message.guild.id);
             return message.channel.send(err);
         }
     } else {
