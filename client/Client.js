@@ -8,7 +8,7 @@ module.exports = class extends Client {
     });
     this.commands = new Enmap();
     this.adminCommands = new Enmap();
-    this.musiccommands = new Collection();
+    this.musiccommands = new Enmap();
 
     this.queue = new Map();
 
