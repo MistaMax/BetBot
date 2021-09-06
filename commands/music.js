@@ -1,6 +1,6 @@
 const ytdl = require("ytdl-core");
 
-const play = async (client, message, args) => {
+const p = async (client, message, args) => {
     //check vc
     const voiceChannel = message.member.voice.channel;
     if (!voiceChannel)
@@ -103,7 +103,7 @@ exports.run = async (client, message, args) => {
             if (args.length < 2) {
                 message.reply("Not enough arguments");
             }
-            play(client, message, args);
+            p(client, message, args);
             break;
         case "stop":
             stop(client, message);
