@@ -3,3 +3,5 @@ config.json
 logs
 coverage
 website/dist
+musicbotexample.js
+.DS_Store

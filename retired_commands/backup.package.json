@@ -6,8 +6,7 @@
   "scripts": {
     "test": "./node_modules/.bin/jest --coverage",
     "start": "./node_modules/.bin/nodemon index",
-    "web-deploy": "./node_modules/.bin/nodemon website/app.js",
-    "cluster-web-deploy": "./node_modules/.bin/nodemon website/clusteredApp.js"
+    "web-deploy": "./node_modules/.bin/nodemon website/app.js"
   },
   "jest": {
     "collectionCoverage": true,
@@ -26,16 +25,20 @@
   },
   "homepage": "https://github.com/MistaMax/BetBot#readme",
   "dependencies": {
+    "@discordjs/node-pre-gyp": "^0.4.1",
+    "@discordjs/opus": "^0.6.0",
     "body-parser": "^1.19.0",
     "bootstrap": "^5.0.1",
     "chalk": "^4.1.1",
     "cookie-parser": "^1.4.5",
+    "discord-player": "^5.1.0",
     "discord.js": "^12.5.3",
     "ejs": "^3.1.6",
     "enmap": "^5.8.5",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
-    "helmet": "^5.0.2",
+    "ffmpeg": "0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
     "jest": "^27.0.4",
     "jquery": "^3.6.0",
     "mongodb": "^3.6.9",
@@ -44,7 +47,6 @@
     "nodemon": "^2.0.7",
     "passport": "^0.4.1",
     "passport-discord": "^0.1.4",
-    "pino": "^7.8.0",
-    "prom-client": "^14.0.1"
+    "ytdl-core": "^4.9.1"
   }
 }

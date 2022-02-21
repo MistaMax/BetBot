@@ -6,6 +6,7 @@ Create your own config.json with the variables in the example.config.json
 Make a logs directory and put a default.log file in it.
 # Fix for windows npm
 npm config set prefix /usr/local
+<<<<<<< HEAD
 
 
 
