@@ -6,7 +6,8 @@
   "scripts": {
     "test": "./node_modules/.bin/jest --coverage",
     "start": "./node_modules/.bin/nodemon index",
-    "web-deploy": "./node_modules/.bin/nodemon website/app.js"
+    "web-deploy": "./node_modules/.bin/nodemon website/app.js",
+    "cluster-web-deploy": "./node_modules/.bin/nodemon website/clusteredApp.js"
   },
   "jest": {
     "collectionCoverage": true,
@@ -34,12 +35,15 @@
     "enmap": "^5.8.5",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
+    "helmet": "^5.0.2",
     "jest": "^27.0.4",
     "jquery": "^3.6.0",
     "mongodb": "^3.6.9",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.7",
     "passport": "^0.4.1",
-    "passport-discord": "^0.1.4"
+    "passport-discord": "^0.1.4",
+    "pino": "^7.8.0",
+    "prom-client": "^14.0.1"
   }
 }

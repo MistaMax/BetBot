@@ -1,0 +1,1 @@
+docker run --interactive --publish 3000:3000 --tty nodeserver:1.0.0

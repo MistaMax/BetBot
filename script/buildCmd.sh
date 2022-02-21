@@ -1,0 +1,1 @@
+docker build --tag nodeserver:1.0.0 --file Dockerfile-run .
